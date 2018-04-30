@@ -21,10 +21,13 @@
   function testListStorage() {
     var list = new List();
     var note3 = new Note("third note");
-    console.log(list.display());
-    list.store(note3);
-    console.log(list.display());
-    if (list.display() !== [note3]) {
+    var note4 = new Note("fourth note");
+    list.store(note3.text);
+    list.store(note4.text);
+    if (list.display()[0] !== note3.text) {
+      throw new Error ("note has not been stored")
+    };
+    if (list.display()[1] !== note4.text) {
       throw new Error ("note has not been stored")
     };
   };

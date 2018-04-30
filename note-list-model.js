@@ -8,7 +8,7 @@
   };
 
   List.prototype.store = function(note) {
-    this.notelist.push(new Note(note))
+    this.notelist.push(note)
   };
 
   exports.List = List;
