@@ -24,8 +24,8 @@
     var list = new List();
     var note2 = new Note("second note");
     var note3 = new Note("third note");
-    list.store(note2.text);
-    list.store(note3.text);
+    list.store(note2);
+    list.store(note3);
     if (list.display()[0] !== note2.text) {
       throw new Error ("note has not been stored")
     };
@@ -41,8 +41,8 @@
     var list = new List();
     var note2 = new Note("second note");
     var note3 = new Note("third note");
-    list.store(note2.text);
-    list.store(note3.text);
+    list.store(note2);
+    list.store(note3);
     var listView = new ListView(list)
     if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
       throw new Error ("testfailed. list not in html format")
@@ -51,5 +51,18 @@
     }
   };
   testListView();
+
+  function testGetHTML() {
+    var notecontroller = new NoteController();
+
+    notecontroller.getHTML();
+
+    if (document.getElementById("app").innerHTML !== "<ul><li><div>Favourite drink: seltzer</div></li></ul>"){
+          throw new Error ("testfailed. innerHTML not displaying")
+    }
+    else {console.log("5th test passed");
+    }
+  };
+   testGetHTML();
 
 })(this);

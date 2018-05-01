@@ -8,7 +8,7 @@ list = (function(exports) {
   };
 
   List.prototype.store = function(note) {
-    this.notelist.push(note)
+    this.notelist.push(note.text)
   };
 
   exports.List = List;
