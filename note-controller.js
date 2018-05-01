@@ -1,12 +1,18 @@
-// (function(window, document) {
-//   window.onload = get_app;
-//
-//   function get_app() {
-//     var app_element = document.getElementById("app");
-//     console.log(app_element);
-//   };
-// })(window,document);
+(function(exports){
+  function NoteController(notelist = new List()) {
+    this.notelist = notelist
+    notelist.store("Favourite drink: seltzer")
+  };
+  console.log(document);
+  NoteController.prototype.getHTML = function() {
+    console.log(document);
+    document.getElementById("app").innerHTML = this.notelist.notelist[0];
+  };
 
-console.log(document.getElementById("app").innerHTML = "howdy")
-// var app = document.getElementById("app");
-// app.innerHTML = "howdy";
+  exports.NoteController = NoteController;
+
+})(this);
+
+note_cont = new NoteController();
+note_cont.getHTML();
+// document.getElementById("app").innerHTML = notecontroller.notelist.notelist[0]
