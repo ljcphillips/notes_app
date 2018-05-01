@@ -65,4 +65,14 @@
   };
    testGetHTML();
 
+   function testSingleNote() {
+     var singlenoteview = new SingleNoteView(note = new Note("this is a note"));
+     if (singlenoteview.display() != "<div>this is a note</div>") {
+       throw new Error ("test failed. string does not match note model")
+     } else {console.log("6th test passed");
+   }
+
+
+   }
+   testSingleNote();
 })(this);
