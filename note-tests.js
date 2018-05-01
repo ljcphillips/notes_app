@@ -44,7 +44,6 @@
     list.store(note2.text);
     list.store(note3.text);
     var listView = new ListView(list)
-    console.log(listView.display())
     if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
       throw new Error ("testfailed. list not in html format")
     }

@@ -1,0 +1,22 @@
+{
+  "name": "notes_app",
+  "version": "1.0.0",
+  "description": "single page notes app",
+  "main": "note-list-model.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljcphillips/notes_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljcphillips/notes_app/issues"
+  },
+  "homepage": "https://github.com/ljcphillips/notes_app#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
