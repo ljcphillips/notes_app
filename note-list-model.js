@@ -1,4 +1,4 @@
-(function(exports) {
+list = (function(exports) {
   function List() {
     this.notelist = [];
   };
