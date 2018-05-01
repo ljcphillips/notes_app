@@ -37,42 +37,58 @@
   };
   testListStorage();
 
-  function testListView() {
-    var list = new List();
-    var note2 = new Note("second note");
-    var note3 = new Note("third note");
-    list.store(note2);
-    list.store(note3);
-    var listView = new ListView(list)
-    if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
-      throw new Error ("testfailed. list not in html format")
-    }
-    else {console.log("4th test passed");
-    }
-  };
-  testListView();
+  // function testListView() {
+  //   var list = new List();
+  //   var note2 = new Note("second note");
+  //   var note3 = new Note("third note");
+  //   list.store(note2);
+  //   list.store(note3);
+  //   var listView = new ListView(list)
+  //   if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
+  //     throw new Error ("testfailed. list not in html format")
+  //   }
+  //   else {console.log("4th test passed");
+  //   }
+  // };
+  // testListView();
 
   function testGetHTML() {
     var notecontroller = new NoteController();
 
     notecontroller.getHTML();
 
-    if (document.getElementById("app").innerHTML !== "<ul><li><div>Favourite drink: seltzer</div></li></ul>"){
+    if (document.getElementById("app").innerHTML !== "<ul><li><div>Favourite drink: sel</div></li></ul>"){
           throw new Error ("testfailed. innerHTML not displaying")
     }
     else {console.log("5th test passed");
     }
   };
-   testGetHTML();
+  testGetHTML();
 
    function testSingleNote() {
      var singlenoteview = new SingleNoteView(note = new Note("this is a note"));
      if (singlenoteview.display() != "<div>this is a note</div>") {
        throw new Error ("test failed. string does not match note model")
-     } else {console.log("6th test passed");
-   }
-
-
-   }
+     }
+     else {console.log("6th test passed");
+     }
+   };
    testSingleNote();
+
+   function test20Characters() {
+     var list = new List();
+     var note2 = new Note("This note has way more than 20 characters!");
+     var note3 = new Note("This note also has way more than 20 characters!");
+     list.store(note2);
+     list.store(note3);
+     var listView = new ListView(list)
+     if (listView.display()!== "<ul><li><div>This note has way mo</div></li><li><div>This note also has w</div></li></ul>") {
+       throw new Error ("testfailed. Notes not under 20 characters")
+     }
+     else {console.log("7th test passed");
+     }
+   };
+   test20Characters();
+
+
 })(this);

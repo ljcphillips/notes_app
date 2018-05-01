@@ -4,7 +4,8 @@
   };
 
   ListView.prototype.display = function(){
-    return "<ul><li><div>"+(this.list.notelist.join("</div></li><li><div>"))+"</div></li></ul>";
+
+    return "<ul><li><div>"+(this.list.notelist.map(note => note.slice(0,20)).join("</div></li><li><div>"))+"</div></li></ul>";
   };
  exports.ListView = ListView;
   })(this);
