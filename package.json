@@ -16,7 +16,8 @@
     "url": "https://github.com/ljcphillips/notes_app/issues"
   },
   "homepage": "https://github.com/ljcphillips/notes_app#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "http-server": "^0.11.1"
   }
 }
