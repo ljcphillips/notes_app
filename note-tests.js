@@ -44,7 +44,6 @@
     list.store(note2);
     list.store(note3);
     var listView = new ListView(list)
-    console.log(listView.display());
     // if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
     //   throw new Error ("testfailed. list not in html format")
     // }
@@ -58,7 +57,7 @@
 
     notecontroller.getHTML();
 
-    if (document.getElementById("app").innerHTML !== "<ul><li><div>Favourite drink: sel</div></li></ul>"){
+    if (document.getElementById("app").innerHTML !== '<ul><li><a href="localhost:8080#notes/5">Favourite drink: sel</a></li></ul>'){
           throw new Error ("testfailed. innerHTML not displaying")
     }
     else {console.log("5th test passed");
@@ -83,12 +82,11 @@
      list.store(note2);
      list.store(note3);
      var listView = new ListView(list)
-     if (listView.display()!== "<ul><li><div>This note has way mo</div></li><li><div>This note also has w</div></li></ul>") {
+     if (listView.display()!== "<ul><li><a href='localhost:8080#notes/7'>This note has way mo</a></li><li><a href='localhost:8080#notes/8'>This note also has w</a></li></ul>") {
        throw new Error ("testfailed. Notes not under 20 characters")
      }
      else {console.log("7th test passed");
      }
-     console.log(listView.display())
    };
    test20Characters();
 
@@ -123,8 +121,8 @@
 
        var listview = new ListView(list);
 
-       var actual = listview.urls[note1];
-       var expected = "<a href='http://localhost:8000/note/1'>";
+       var actual = listview.display();
+       var expected = "<ul><li><a href='localhost:8080#notes/13'>some text</a></li></ul>";
 
        if (actual === expected) {
          console.log("10th test passed");
