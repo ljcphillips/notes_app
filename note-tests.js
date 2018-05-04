@@ -44,11 +44,11 @@
     list.store(note2);
     list.store(note3);
     var listView = new ListView(list)
-    // if (listView.display()!== "<ul><li><div>second note</div></li><li><div>third note</div></li></ul>") {
-    //   throw new Error ("testfailed. list not in html format")
-    // }
-    // else {console.log("4th test passed");
-    // }
+    if (listView.display()!== "<ul><li><a href='#notes/3'>second note</a></li><li><a href='#notes/4'>third note</a></li></ul>") {
+      throw new Error ("testfailed. list not in html format")
+    }
+    else {console.log("4th test passed");
+    }
   };
   testListView();
 
@@ -56,8 +56,7 @@
     var notecontroller = new NoteController();
 
     notecontroller.getHTML();
-
-    if (document.getElementById("app").innerHTML !== '<ul><li><a href="localhost:8080#notes/5">Favourite drink: sel</a></li></ul>'){
+    if (document.getElementById("notelist").innerHTML !== '<ul><li><a href="#notes/5">Favourite drink: sel</a></li></ul>'){
           throw new Error ("testfailed. innerHTML not displaying")
     }
     else {console.log("5th test passed");
@@ -82,7 +81,7 @@
      list.store(note2);
      list.store(note3);
      var listView = new ListView(list)
-     if (listView.display()!== "<ul><li><a href='localhost:8080#notes/7'>This note has way mo</a></li><li><a href='localhost:8080#notes/8'>This note also has w</a></li></ul>") {
+     if (listView.display()!== "<ul><li><a href='#notes/7'>This note has way mo</a></li><li><a href='#notes/8'>This note also has w</a></li></ul>") {
        throw new Error ("testfailed. Notes not under 20 characters")
      }
      else {console.log("7th test passed");
@@ -122,7 +121,7 @@
        var listview = new ListView(list);
 
        var actual = listview.display();
-       var expected = "<ul><li><a href='localhost:8080#notes/13'>some text</a></li></ul>";
+       var expected = "<ul><li><a href='#notes/13'>some text</a></li></ul>";
 
        if (actual === expected) {
          console.log("10th test passed");
@@ -133,4 +132,15 @@
      }
      testListViewHTML();
 
+    function testSingleNotePage(){
+      var noteController = new NoteController();
+      noteController.getHTML();
+      console.log(noteController.showClickedNote());
+      // if (document.getElementById("notelist").innerHTML !== 'Favourite drink: seltzer'){
+      //       throw new Error ("testfailed. single note not displaying")
+      // }
+      // else {console.log("11th test passed");
+      // }
+    }
+    testSingleNotePage();
 })(this);
